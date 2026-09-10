@@ -1,0 +1,150 @@
+# ============================================================
+# PDF REPORT CONFIGURATION
+# ============================================================
+
+# ------------------------------------------------------------
+# Status Colors
+# ------------------------------------------------------------
+
+passColor: 00A000
+failColor: FF0000
+skipColor: F5A623
+
+
+# ------------------------------------------------------------
+# Report Sections
+# ------------------------------------------------------------
+
+displayFeature: true
+displayScenario: true
+displayDetailed: true
+
+
+# ------------------------------------------------------------
+# Screenshots
+# ------------------------------------------------------------
+
+displayAttached: true
+displayExpanded: false
+
+
+# ============================================================
+# DASHBOARD
+# ============================================================
+
+dashboardConfig:
+
+  title: Automation Test Report by Avneesh
+  titleColor: 000000
+
+  dateColor: 0000FF
+
+  timeColor: FF0000
+
+  dataBackgroundColor: 404040
+
+  dial:
+    featureRanges: 60 85
+    scenarioRanges: 60 85
+    stepRanges: 60 85
+
+    badColor: FF0000
+    averageColor: F5A623
+    goodColor: 00C853
+
+
+# ============================================================
+# FEATURE SUMMARY
+# ============================================================
+
+featureConfig:
+
+  featureCount: 10
+
+  totalColor: 0000FF
+
+  durationColor: FF0000
+
+
+# ============================================================
+# SCENARIO SUMMARY
+# ============================================================
+
+scenarioConfig:
+
+  scenarioCount: 10
+
+  totalColor: 0000FF
+
+  durationColor: FF0000
+
+
+# ============================================================
+# DETAILED FEATURE
+# ============================================================
+
+detailedFeatureConfig:
+
+  featureNameColor: 000000
+
+  startEndTimeColor: 000000
+
+  tagColor: 404040
+
+  dataHeaderColor: FFFFFF
+
+  dataBackgroundColor: 404040
+
+  totalColor: 0000FF
+
+  durationColor: FFFFFF
+
+  durationBackgroundColor: 404040
+
+
+# ============================================================
+# DETAILED SCENARIO
+# ============================================================
+
+detailedScenarioConfig:
+
+  featureNameColor: 404040
+
+  scenarioNameColor: 000000
+
+  startEndTimeColor: 000000
+
+  tagColor: 404040
+
+  dataHeaderColor: FFFFFF
+
+  dataBackgroundColor: 404040
+
+  totalColor: 0000FF
+
+  durationColor: FFFFFF
+
+  durationBackgroundColor: 404040
+
+  stepChartBarColor: 7F32A8
+
+
+# ============================================================
+# STEP / HOOK DETAILS
+# ============================================================
+
+detailedStepHookConfig:
+
+  stepTextColor: 000000
+
+  stepBackgroundColor: FFFFFF
+
+  hookTextColor: 008000
+
+  hookBackgroundColor: FFFFFF
+
+  durationColor: FF0000
+
+  errorMsgColor: FF0000
+
+  logMsgColor: 000000
