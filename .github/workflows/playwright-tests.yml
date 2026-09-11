@@ -37,11 +37,57 @@ jobs:
       - name: Run tests
         run: mvn test
 
-      - name: Upload test reports
+      - name: Create Extent Report ZIP
         if: always()
+        run: |
+          rm -f ExtentReport.zip
+
+          REPORT_DIR=$(find target -maxdepth 1 -type d -name 'ExtentReport*' | head -n 1)
+
+          if [ -z "$REPORT_DIR" ]; then
+            echo "Extent Report directory not found."
+            exit 1
+          fi
+
+          echo "Extent Report found: $REPORT_DIR"
+
+          REPORT_NAME=$(basename "$REPORT_DIR")
+
+          cd target
+          zip -r "../ExtentReport.zip" "$REPORT_NAME"
+
+          cd ..
+
+          echo "Created ExtentReport.zip"
+          ls -lh ExtentReport.zip
+
+      - name: Upload Extent Report ZIP
+        if: ${{ always() && hashFiles('ExtentReport.zip') != '' }}
         uses: actions/upload-artifact@v4
         with:
-          name: test-reports
-          path: |
-            target/
-            test-output/
+          name: ExtentReport
+          path: ExtentReport.zip
+
+      - name: Send Extent Report by Email
+        if: ${{ always() && hashFiles('ExtentReport.zip') != '' }}
+        uses: dawidd6/action-send-mail@v18
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: "Playwright Automation - Extent Report"
+          to: ${{ secrets.MAIL_TO }}
+          from: ${{ secrets.MAIL_USERNAME }}
+          body: |
+            Hi,
+
+            Please find the Extent Report attached.
+
+            GitHub Actions Run:
+            ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+            Regards,
+            Playwright Automation
+          attachments: ExtentReport.zip
