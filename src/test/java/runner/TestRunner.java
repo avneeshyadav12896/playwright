@@ -7,7 +7,7 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
 
-    features = "src/test/resources/features",
+    features = "src/test/resources/features/enquiry.feature",
 
     glue = {
         "stepdefinitions",

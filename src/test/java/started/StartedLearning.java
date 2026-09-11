@@ -1,18 +1,13 @@
 package started;
 
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeMethod;
 import java.io.IOException;
 import java.nio.file.Paths;
-import java.util.concurrent.ThreadLocalRandom;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Test;
 
-import com.beust.jcommander.Parameter;
 import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.BrowserType;
@@ -22,7 +17,6 @@ import com.microsoft.playwright.Playwright;
 import com.microsoft.playwright.assertions.PlaywrightAssertions;
 import com.microsoft.playwright.options.AriaRole;
 
-import groovyjarjarpicocli.CommandLine.Parameters;
 import utils.FileUtilities;
 
 public class StartedLearning{
